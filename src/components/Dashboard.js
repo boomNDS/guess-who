@@ -14,17 +14,18 @@ const Wrapper = styled.section`
   position: relative;
   top: 50%;
   left: 50%;
+  
 `
 
 
 function Dashboard(props) {
-    return <Container>
-        <Wrapper>
-            <Title>
-                Hello World!
+  return <Container>
+    <Wrapper>
+      <Title>
+        Hello World!
             </Title>
-        </Wrapper>
-    </Container>
+    </Wrapper>
+  </Container>
 }
 
 export default Dashboard
