@@ -1,9 +1,10 @@
-import './App.css';
+import './App.scss';
 
-import Dashboard from './components/Dashboard'
-import UserDisplay from './components/UserDisplay'
+import Dashboard from './pages/Dashboard'
+import UserDisplay from './pages/UserDisplay'
 
 import React from "react";
+import { useState } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,6 +15,26 @@ import {
 } from "react-router-dom";
 
 export default function App() {
+  const [tasks, setTasks] = useState([
+    {
+      id: 1,
+      text: 'A',
+      day: 'Feb 1th at 1:30 pm',
+      reminder: true
+    },
+    {
+      id: 2,
+      text: 'B',
+      day: 'Feb 2th at 2:30 pm',
+      reminder: false
+    },
+    {
+      id: 3,
+      text: 'C',
+      day: 'Feb 3th at 3:00 pm',
+      reminder: false
+    }
+  ])
   return (
     <Router>
       <div>
@@ -22,7 +43,7 @@ export default function App() {
             <UserDisplay />
           </Route>
           <Route path="/">
-            <Dashboard name="good" />
+            <Dashboard name="good" tasks={tasks} />
           </Route>
         </Switch>
       </div>
