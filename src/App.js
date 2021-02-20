@@ -19,12 +19,20 @@ import {
 
 export default function App() {
   const [tasks, setTasks] = useState([])
+  const [rooms, setRooms] = useState([])
+  const [users, setUsers] = useState([])
+  // setting when create pages
   useEffect(() => {
     const getTasks = async () => {
       const tasksFromServer = await fetchTasks()
       setTasks(tasksFromServer)
     }
+    const getRooms = async () => {
+      const roomsFromServer = await fetchRooms()
+      setRooms(roomsFromServer)
+    }
     getTasks()
+    getRooms()
   }, [])
   // Fetch Data
   const fetchTasks = async () => {
@@ -78,6 +86,42 @@ export default function App() {
     ))
   }
 
+  // Rooms
+  const fetchRooms = async () => {
+    const res = await fetch('http://localhost:5000/rooms')
+    const data = await res.json()
+    return data
+  }
+  const fetchRoom = async (id) => {
+    const res = await fetch(`http://localhost:5000/rooms/${id}`)
+    const data = await res.json()
+    return data
+  }
+  const createRoom = async (room) => {
+    const res = await fetch(`http://localhost:5000/rooms/`, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(room)
+    })
+
+    const data = res.json
+    setTasks([...rooms, data])
+  }
+  const joinRoom = async (user) => {
+    const res = await fetch(`http://localhost:5000/users/`, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    })
+
+    const data = res.json
+    setTasks([...users, data])
+  }
+
 
   return (
     <Router>
@@ -86,11 +130,14 @@ export default function App() {
           <Route path="/user_display">
             <UserDisplay />
           </Route>
+          <Route path="/room_display">
+            <UserDisplay />
+          </Route>
           <Route path="/about">
             <About />
           </Route>
           <Route path="/">
-            <Dashboard />
+            <Dashboard createRoom={createRoom} joinRoom={joinRoom} />
           </Route>
           <Route path="/todos">
             <Todos name="good" tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} onAdd={addTask} />

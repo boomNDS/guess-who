@@ -1,7 +1,6 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { Container, Row, Col } from 'react-bootstrap';
 import { FaCog } from 'react-icons/fa';
 
 

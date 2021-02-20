@@ -1,13 +1,13 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import Swal from 'sweetalert2/dist/sweetalert2.js'
+import { useHistory } from "react-router-dom";
 
+import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
 
-const ipAPI = '//api.ipify.org?format=json'
 
-const createRoom = () => {
+const createRoomModal = (createRoom, history) => {
   Swal.fire({
     title: 'Create Room',
     input: 'text',
@@ -21,11 +21,11 @@ const createRoom = () => {
     },
     allowOutsideClick: () => !Swal.isLoading()
   }).then((result) => {
-    console.log(result.value)
+    createRoom({ name: result.value, randomUsers: [], randomActive: false })
   })
 }
 
-const joinRoom = () => {
+const joinRoomModal = (joinRoom, history) => {
   Swal.mixin({
     title: 'Join Room',
     input: 'text',
@@ -41,20 +41,14 @@ const joinRoom = () => {
     },
   ]).then((result) => {
     if (result.value) {
-      const answers = JSON.stringify(result.value)
-      Swal.fire({
-        title: 'All done!',
-        html: `
-          Your answers:
-          <pre><code>${answers}</code></pre>
-        `,
-        confirmButtonText: 'Lovely!'
-      })
+      joinRoom({ room: parseInt(result.value[0]), name: result.value[1] })
+      history.push("/user_display")
     }
   })
 }
 
-function Dashboard() {
+function Dashboard({ createRoom, joinRoom }) {
+  const history = useHistory();
   return <div>
     <Navbar />
     <Container fluid className="dashboard">
@@ -64,8 +58,8 @@ function Dashboard() {
           <h4>Create Room for  random  Winder Room</h4>
           <Row className="">
             <Col className="box-center">
-              <Button variant="outline-secondary" onClick={createRoom}>Create Room</Button>
-              <Button variant="outline-secondary" onClick={joinRoom}>Join Room</Button>
+              <Button variant="outline-secondary" onClick={() => createRoomModal(createRoom, history)}>Create Room</Button>
+              <Button variant="outline-secondary" onClick={() => joinRoomModal(joinRoom, history)}>Join Room</Button>
             </Col>
           </Row>
         </Col>

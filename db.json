@@ -21,6 +21,12 @@
         0
       ],
       "randomActive": false
+    },
+    {
+      "name": "boom room",
+      "randomUsers": [],
+      "randomActive": false,
+      "id": 2
     }
   ],
   "users": [
@@ -28,6 +34,11 @@
       "id": 0,
       "name": "boom",
       "room": 1
+    },
+    {
+      "room": 1,
+      "name": "asd",
+      "id": 1
     }
   ]
 }

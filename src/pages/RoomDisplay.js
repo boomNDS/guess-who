@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 
 
-function UserDisplay({ name }) {
+function RoomDisplay() {
     return (
         <div>
             <Navbar />
@@ -10,6 +10,4 @@ function UserDisplay({ name }) {
     )
 }
 
-
-
-export default UserDisplay
+export default RoomDisplay
