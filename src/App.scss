@@ -16,7 +16,7 @@ body {
   max-width: 500px;
   margin: 30px auto;
   overflow: auto;
-  min-height: 300px;
+  min-height: 500px;
   border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;
@@ -78,6 +78,7 @@ body {
 }
 
 .form-control {
+  position: relative;
   margin: 20px 0;
 
   label {

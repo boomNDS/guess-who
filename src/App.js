@@ -35,6 +35,24 @@ export default function App() {
       reminder: false
     }
   ])
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id))
+  }
+
+  const addTask = (task) => {
+    const id = Math.floor(Math.random() * 10000) + 1
+    const newTask = { id, ...task }
+    setTasks([...tasks, newTask])
+  }
+
+  const toggleReminder = (id) => {
+    console.log(id)
+    setTasks(tasks.map((task) =>
+      task.id === id ? { ...task, reminder: !task.reminder } : task
+    ))
+  }
+
+
   return (
     <Router>
       <div>
@@ -43,7 +61,7 @@ export default function App() {
             <UserDisplay />
           </Route>
           <Route path="/">
-            <Dashboard name="good" tasks={tasks} />
+            <Dashboard name="good" tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} onAdd={addTask} />
           </Route>
         </Switch>
       </div>
