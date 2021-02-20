@@ -1,7 +1,6 @@
 import './App.scss';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+// page import
 import Dashboard from './pages/Dashboard'
 import UserDisplay from './pages/UserDisplay'
 import About from './pages/About'
