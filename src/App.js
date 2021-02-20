@@ -94,6 +94,11 @@ export default function App() {
           <Route path="/todos">
             <Todos name="good" tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} onAdd={addTask} />
           </Route>
+
+          <Router path="/" exact render={(props) => {
+            <>
+            </>
+          }} />
         </Switch>
       </div>
     </Router>
