@@ -1,5 +1,7 @@
 import './App.scss';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Dashboard from './pages/Dashboard'
 import UserDisplay from './pages/UserDisplay'
 import About from './pages/About'
@@ -94,7 +96,6 @@ export default function App() {
           <Route path="/todos">
             <Todos name="good" tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} onAdd={addTask} />
           </Route>
-
           <Router path="/" exact render={(props) => {
             <>
             </>

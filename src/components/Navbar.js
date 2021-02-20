@@ -1,23 +1,22 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import { Row, Col } from 'antd';
 
 
-const Header = ({ title }) => {
-    const location = useLocation()
+const Navbar = ({ title }) => {
     return (
-        <header>
-            <h1>{title}</h1>
-            {location.pathname === '/' && <p>Add</p>}
+        <header className="navbar">
+            <Row></Row>
         </header>
     )
 }
 
-Header.defaultProps = {
+Navbar.defaultProps = {
     title: 'Task Tracker',
 }
 
-Header.protoTypes = {
+Navbar.protoTypes = {
     title: PropTypes.string.isRequired
 }
 
@@ -26,4 +25,4 @@ Header.protoTypes = {
 //     backgroundColor: 'black'
 // }
 
-export default Header
+export default Navbar

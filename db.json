@@ -12,5 +12,22 @@
       "day": "Feb 3th at 3: 00 pm",
       "reminder": true
     }
+  ],
+  "rooms": [
+    {
+      "id": 1,
+      "name": "",
+      "randomUsers": [
+        0
+      ],
+      "randomActive": false
+    }
+  ],
+  "users": [
+    {
+      "id": 0,
+      "name": "boom",
+      "room": 1
+    }
   ]
 }

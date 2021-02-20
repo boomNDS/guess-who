@@ -1,12 +1,13 @@
 import React from 'react'
-import { Container, } from 'react-bootstrap'
+import Navbar from '../components/Navbar'
 
 
 
-function Dashboard({ tasks, onDelete, onToggle, onAdd }) {
-  return <Container className="dashboard">
-    <h4>a</h4>
-  </Container >
+
+function Dashboard() {
+  return <div>
+    <Navbar />
+  </div>
 }
 
 export default Dashboard
