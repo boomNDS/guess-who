@@ -81,7 +81,7 @@ export default function App() {
 
   return (
     <Router>
-      <div>
+      <div className="body">
         <Switch>
           <Route path="/user_display">
             <UserDisplay />

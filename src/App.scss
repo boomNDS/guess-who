@@ -3,7 +3,29 @@
 @import "~bootstrap/scss/bootstrap";
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300;1,400&display=swap');
+$white: #FBFBFB;
+$black: #323232;
 
 * {
     font-family: 'Roboto', sans-serif;
+    color: $black;
+}
+
+.body {
+    height: 100vh;
+}
+
+.bg-r {
+    background-color: red;
+    color: white;
+}
+
+.bg-g {
+    background-color: green;
+    color: white;
+}
+
+.bg-b {
+    background-color: blue;
+    color: white;
 }

@@ -1,17 +1,7 @@
-.bg-r {
-    background-color: red;
-    color: white;
-}
+$white: #FBFBFB;
+$black: #323232;
 
-.bg-g {
-    background-color: green;
-    color: white;
-}
 
-.bg-b {
-    background-color: blue;
-    color: white;
-}
 
 .navbar-custom {
     padding: 15px 2px;
@@ -19,6 +9,7 @@
     .setting-icon {
         font-size: 1.4rem;
         transform: rotate(0deg);
+        color: $black;
         transition: 0.5s all;
     }
 

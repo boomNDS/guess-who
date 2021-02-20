@@ -1,0 +1,27 @@
+.dashboard {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    h4,
+    h1 {}
+
+    .box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn {
+        margin: 5px;
+    }
+
+    .box-center {
+        position: relative;
+        top: 50%;
+    }
+}
