@@ -16,24 +16,7 @@ import {
 
 export default function App() {
   const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      text: 'A',
-      day: 'Feb 1th at 1:30 pm',
-      reminder: true
-    },
-    {
-      id: 2,
-      text: 'B',
-      day: 'Feb 2th at 2:30 pm',
-      reminder: false
-    },
-    {
-      id: 3,
-      text: 'C',
-      day: 'Feb 3th at 3:00 pm',
-      reminder: false
-    }
+
   ])
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id))

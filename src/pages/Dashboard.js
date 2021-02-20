@@ -9,9 +9,6 @@ import AddTask from '../components/AddTask'
 
 
 function Dashboard({ tasks, onDelete, onToggle, onAdd }) {
-  const onClick = (e) => {
-    console.log(e)
-  }
   const [showAddTask, setShowAddTask] = useState(false)
   return <Container className="dashboard">
     <Header title="Task Tracker" ></Header>
