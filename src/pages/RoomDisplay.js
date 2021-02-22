@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../components/Navbar'
 
 
-function RoomDisplay() {
+function RoomDisplay({ rooms, users }) {
     return (
         <div>
             <Navbar />

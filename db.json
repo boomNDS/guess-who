@@ -16,7 +16,7 @@
   "rooms": [
     {
       "id": 1,
-      "name": "",
+      "name": "New Year Party",
       "randomUsers": [
         0
       ],
@@ -27,6 +27,13 @@
       "randomUsers": [],
       "randomActive": false,
       "id": 2
+    },
+    {
+      "room": {
+        "randomUsers": [],
+        "randomActive": false
+      },
+      "id": 3
     }
   ],
   "users": [
@@ -37,8 +44,22 @@
     },
     {
       "room": 1,
-      "name": "asd",
+      "name": "BB",
       "id": 1
+    },
+    {
+      "user": {
+        "room": 1,
+        "name": "GO"
+      },
+      "id": 2
+    },
+    {
+      "user": {
+        "room": 1,
+        "name": "C"
+      },
+      "id": 3
     }
   ]
 }

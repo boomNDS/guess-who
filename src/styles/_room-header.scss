@@ -1,0 +1,32 @@
+$white: #FBFBFB;
+$black: #323232;
+
+.room-header {
+    text-align: center;
+    padding-top: 20px;
+
+    .col:nth-child(odd) {
+        // background-color: blueviolet;
+    }
+
+    .col:nth-child(even) {
+        // background-color: red;
+    }
+
+    .title {
+        span {
+            position: relative;
+            color: $white;
+            background-color: $black;
+            padding: 4px 8px;
+            border-radius: 8px;
+            bottom: 50%;
+            left: 225px;
+        }
+    }
+
+    h2 {
+        color: $black;
+        font-size: 3rem;
+    }
+}

@@ -1,10 +1,11 @@
 import React from 'react'
-import { } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { FaCog } from 'react-icons/fa';
 
 
 const Navbar = ({ title }) => {
+    const location = useLocation()
     return (
         <div className="container navbar-custom">
             <div className="row">
@@ -12,7 +13,7 @@ const Navbar = ({ title }) => {
                     <h4>Guess-Who ?</h4>
                 </div>
                 <div className="offset-4">
-                    <FaCog className="setting-icon" />
+                    {location.pathname !== '/' && (<FaCog className="setting-icon" />)}
                 </div>
             </div>
         </div>

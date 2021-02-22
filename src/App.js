@@ -3,10 +3,12 @@ import './App.scss';
 // page import
 import Dashboard from './pages/Dashboard'
 import UserDisplay from './pages/UserDisplay'
+import RoomDisplay from './pages/RoomDisplay'
 import About from './pages/About'
 import Todos from './pages/Todos'
 
 import React from "react";
+import axios from 'axios';
 import { useState, useEffect } from 'react'
 import {
   BrowserRouter as Router,
@@ -27,12 +29,9 @@ export default function App() {
       const tasksFromServer = await fetchTasks()
       setTasks(tasksFromServer)
     }
-    const getRooms = async () => {
-      const roomsFromServer = await fetchRooms()
-      setRooms(roomsFromServer)
-    }
+    fetchRooms()
+    fetchUsers()
     getTasks()
-    getRooms()
   }, [])
   // Fetch Data
   const fetchTasks = async () => {
@@ -88,38 +87,39 @@ export default function App() {
 
   // Rooms
   const fetchRooms = async () => {
-    const res = await fetch('http://localhost:5000/rooms')
-    const data = await res.json()
-    return data
+    axios.get(`http://localhost:5000/rooms`)
+      .then(res => {
+        let data = res.data
+        setRooms(data)
+      })
   }
-  const fetchRoom = async (id) => {
-    const res = await fetch(`http://localhost:5000/rooms/${id}`)
-    const data = await res.json()
-    return data
+  const fetchUsers = async () => {
+    axios.get(`http://localhost:5000/users`)
+      .then(res => {
+        let data = res.data
+        setUsers(data)
+      })
   }
-  const createRoom = async (room) => {
-    const res = await fetch(`http://localhost:5000/rooms/`, {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify(room)
-    })
+  // const fetchRoom = async (id) => {
+  //   axios.get(`http://localhost:5000/rooms/${id}`)
+  //     .then(res => {
+  //     })
+  // }
+  const createRoom = async (room, history) => {
+    axios.post(`http://localhost:5000/rooms/`, { room })
+      .then(res => {
+        const data = res.data
+        setRooms([...rooms, data])
 
-    const data = res.json
-    setTasks([...rooms, data])
+      })
   }
-  const joinRoom = async (user) => {
-    const res = await fetch(`http://localhost:5000/users/`, {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify(user)
-    })
-
-    const data = res.json
-    setTasks([...users, data])
+  const joinRoom = async (user, history) => {
+    axios.post(`http://localhost:5000/users/`, { user })
+      .then(res => {
+        const data = res.data
+        setUsers([...users, data])
+        history.push(`/user_display/${data.user.room}`)
+      })
   }
 
 
@@ -127,16 +127,14 @@ export default function App() {
     <Router>
       <div className="body">
         <Switch>
-          <Route path="/user_display">
-            <UserDisplay />
-          </Route>
-          <Route path="/room_display">
-            <UserDisplay />
+          <Route path="/user_display/:id" component={() => <UserDisplay users={users} rooms={rooms} />} />
+          <Route path="/room_display/:id">
+            <RoomDisplay />
           </Route>
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/">
+          <Route path="/" exact>
             <Dashboard createRoom={createRoom} joinRoom={joinRoom} />
           </Route>
           <Route path="/todos">

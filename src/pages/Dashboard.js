@@ -21,7 +21,7 @@ const createRoomModal = (createRoom, history) => {
     },
     allowOutsideClick: () => !Swal.isLoading()
   }).then((result) => {
-    createRoom({ name: result.value, randomUsers: [], randomActive: false })
+    createRoom({ name: result.value, randomUsers: [], randomActive: false }, history)
   })
 }
 
@@ -41,8 +41,7 @@ const joinRoomModal = (joinRoom, history) => {
     },
   ]).then((result) => {
     if (result.value) {
-      joinRoom({ room: parseInt(result.value[0]), name: result.value[1] })
-      history.push("/user_display")
+      joinRoom({ room: parseInt(result.value[0]), name: result.value[1] }, history)
     }
   })
 }
