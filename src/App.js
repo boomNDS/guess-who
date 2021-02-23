@@ -106,19 +106,19 @@ export default function App() {
   //     })
   // }
   const createRoom = async (room, history) => {
-    axios.post(`http://localhost:5000/rooms/`, { room })
+    axios.post(`http://localhost:5000/rooms/`, room)
       .then(res => {
         const data = res.data
         setRooms([...rooms, data])
-
+        history.push(`/room_display/${data.id}`)
       })
   }
   const joinRoom = async (user, history) => {
-    axios.post(`http://localhost:5000/users/`, { user })
+    axios.post(`http://localhost:5000/users/`, user)
       .then(res => {
         const data = res.data
         setUsers([...users, data])
-        history.push(`/user_display/${data.user.room}`)
+        history.push(`/user_display/${data.id}`)
       })
   }
 
@@ -128,9 +128,7 @@ export default function App() {
       <div className="body">
         <Switch>
           <Route path="/user_display/:id" component={() => <UserDisplay users={users} rooms={rooms} />} />
-          <Route path="/room_display/:id">
-            <RoomDisplay />
-          </Route>
+          <Route path="/room_display/:id" component={() => <RoomDisplay users={users} rooms={rooms} />} />
           <Route path="/about">
             <About />
           </Route>

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 
 function RoomHeder({ room, total }) {
     useEffect(() => {
-        console.log(room)
+        // console.log(room)
         // console.log(total)
     })
     return (

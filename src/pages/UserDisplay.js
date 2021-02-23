@@ -11,6 +11,11 @@ function UserDisplay({ rooms, users }) {
         let roomId = users.filter(user => user.id === parseInt(id))[0].room
         return rooms.filter(room => room.id === parseInt(roomId))[0]
     }
+    function totalUser(users, rooms, id) {
+        let roomId = users.filter(user => user.id === parseInt(id))[0].room
+        let data = users.filter(user => user.room === parseInt(roomId))
+        return data.length
+    }
     const { id } = useParams()
     useEffect(() => {
     })
@@ -18,7 +23,7 @@ function UserDisplay({ rooms, users }) {
         <div>
             <Navbar />
             <div>
-                <RoomHeader room={userRoom(users, rooms, id)} total={(users.filter(user => user.room === parseInt(id))).length} />
+                <RoomHeader room={userRoom(users, rooms, id)} total={totalUser(users, rooms, id)} />
             </div>
             <div>
                 <NameHeader active={false} user={users.filter(user => user.id === parseInt(id))[0]} />
@@ -27,13 +32,11 @@ function UserDisplay({ rooms, users }) {
     )
 }
 
-
-
-export default UserDisplay
-
-//display User in Room
 // {users.filter(user => user.room === parseInt(id)).map(filteredUser => (
 //     <li key={filteredUser.id}>
 //         {filteredUser.name}
 //     </li>
 // ))}
+
+export default UserDisplay
+

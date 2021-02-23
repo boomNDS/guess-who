@@ -23,17 +23,21 @@
       "randomActive": false
     },
     {
-      "name": "boom room",
       "randomUsers": [],
       "randomActive": false,
       "id": 2
     },
     {
-      "room": {
-        "randomUsers": [],
-        "randomActive": false
-      },
+      "name": "test 2",
+      "randomUsers": [],
+      "randomActive": false,
       "id": 3
+    },
+    {
+      "name": "test room",
+      "randomUsers": [],
+      "randomActive": false,
+      "id": 4
     }
   ],
   "users": [
@@ -48,18 +52,19 @@
       "id": 1
     },
     {
-      "user": {
-        "room": 1,
-        "name": "GO"
-      },
+      "room": 1,
+      "name": "bosri",
       "id": 2
     },
     {
-      "user": {
-        "room": 1,
-        "name": "C"
-      },
+      "room": 3,
+      "name": "1",
       "id": 3
+    },
+    {
+      "room": 4,
+      "name": "a",
+      "id": 4
     }
   ]
 }
