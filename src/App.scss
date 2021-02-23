@@ -1,0 +1,43 @@
+@import 'styles/dashboard.scss'; // assuming a styles directory under src/
+@import 'styles/navbar.scss';
+@import 'styles/room-header.scss';
+@import 'styles/name-header.scss';
+@import "~bootstrap/scss/bootstrap";
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,300;1,400&display=swap');
+$white: #FBFBFB;
+$black: #323232;
+
+* {
+    font-family: 'Roboto', sans-serif;
+    color: $black;
+}
+
+.body {
+    height: 100vh;
+}
+
+.bg-r {
+    background-color: red;
+    color: white;
+}
+
+.bg-g {
+    background-color: green;
+    color: white;
+}
+
+.bg-b {
+    background-color: blue;
+    color: white;
+}
+
+.test {
+    font-size: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    background-color: #323232;
+    color: #FBFBFB;
+}

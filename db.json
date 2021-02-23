@@ -1,0 +1,70 @@
+{
+  "tasks": [
+    {
+      "id": 2,
+      "text": "B",
+      "day": "Feb 2th at 2: 30 pm",
+      "reminder": false
+    },
+    {
+      "id": 3,
+      "text": "C",
+      "day": "Feb 3th at 3: 00 pm",
+      "reminder": true
+    }
+  ],
+  "rooms": [
+    {
+      "id": 1,
+      "name": "New Year Party",
+      "randomUsers": [
+        0
+      ],
+      "randomActive": false
+    },
+    {
+      "randomUsers": [],
+      "randomActive": false,
+      "id": 2
+    },
+    {
+      "name": "test 2",
+      "randomUsers": [],
+      "randomActive": false,
+      "id": 3
+    },
+    {
+      "name": "test room",
+      "randomUsers": [],
+      "randomActive": false,
+      "id": 4
+    }
+  ],
+  "users": [
+    {
+      "id": 0,
+      "name": "boom",
+      "room": 1
+    },
+    {
+      "room": 1,
+      "name": "BB",
+      "id": 1
+    },
+    {
+      "room": 1,
+      "name": "bosri",
+      "id": 2
+    },
+    {
+      "room": 3,
+      "name": "1",
+      "id": 3
+    },
+    {
+      "room": 4,
+      "name": "a",
+      "id": 4
+    }
+  ]
+}
